@@ -3,22 +3,22 @@ import ply.lex as lex
 from Lexico import tokens
 
 def p_start1(p):
-    '''start: declaracao_variavel_externa'''
+    '''start : declaracao_variavel_externa'''
 
 def p_start2(p):
-    '''start: declaracao_constante'''
+    '''start : declaracao_constante'''
 
 def p_start3(p):
-    '''start: declaracao_funcao'''
+    '''start : declaracao_funcao'''
 
 def p_start4(p):
-    '''start: declaracao_variavel_externa start'''
+    '''start : declaracao_variavel_externa start'''
 
 def p_start5(p):
-    '''start: declaracao_constante start'''
+    '''start : declaracao_constante start'''
 
 def p_start6(p):
-    '''start: declaracao_funcao start'''
+    '''start : declaracao_funcao start'''
 
 def p_variavel_externa(p):
     '''declaracao_variavel_externa : STATIC ID ASSIGN expressao'''
@@ -68,8 +68,8 @@ def p_expressao_de_bloco(p):
 def p_declaracao(p):
     '''declaracao : SEMICOLON'''
 
-def p_declaracao2(p):
-    '''declaracao : item'''
+#def p_declaracao2(p):
+#    '''declaracao : item'''
 
 def p_declaracao3(p):
     '''declaracao : expressao'''
@@ -158,50 +158,50 @@ def p_literal_expression1(p):
 
 def p_exp(p):
     '''
-    exp : exp1 ASSING exp
+    exp : exp1 ASSIGN exp
     '''
     #p[0] = p[1] = p[3]
 
 def p_exp1(p):
     '''
-    exp : exp1 ASSING_PLUS exp
+    exp : exp1 ASSIGN_PLUS exp
     '''
     #p[0] = p[1] + p[2]
 def p_exp2(p):
     '''
-    exp : exp1 ASSING_MINUS exp
+    exp : exp1 ASSIGN_MINUS exp
     '''
 def p_exp3(p):
     '''
-    exp : exp1 ASSING_TIMES exp
+    exp : exp1 ASSIGN_TIMES exp
     '''
 def p_exp4(p):
     '''
-    exp : exp1 ASSING_DIVIDE exp
+    exp : exp1 ASSIGN_DIVIDE exp
     '''
 def p_exp5(p):
     '''
-    exp : exp1 ASSING_RESDIV exp
+    exp : exp1 ASSIGN_RESDIV exp
     '''
 def p_exp6(p):
     '''
-    exp : exp1 ASSING_AND exp
+    exp : exp1 ASSIGN_AND exp
     '''
 def p_exp7(p):
     '''
-    exp : exp1 ASSING_OR exp
+    exp : exp1 ASSIGN_OR exp
     '''
 def p_exp8(p):
     '''
-    exp : exp1 ASSING_XOR exp
+    exp : exp1 ASSIGN_XOR exp
     '''
 def p_exp9(p):
     '''
-    exp : exp1 ASSING_LEFTSHIFT exp
+    exp : exp1 ASSIGN_LEFTSHIFT exp
     '''
 def p_exp10(p):
     '''
-    exp : exp1 ASSING_RIGHTSHIFT exp
+    exp : exp1 ASSIGN_RIGHTSHIFT exp
     '''
 def p_exp11(p):
     '''
@@ -334,6 +334,11 @@ def p_exp39(p):
 def p_exp40(p):
     '''
     exp10 : NOT exp10 
+    '''
+
+def p_exp40(p):
+    '''
+    exp10 : expressao_sem_bloco
     '''
 def p_group_expression(p):
     '''

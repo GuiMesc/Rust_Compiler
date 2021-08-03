@@ -22,7 +22,7 @@ reserved = {
 'match'     :   'MATCH',
 'mod'       :   'MOD',
 'move'      :   'MOVE',
-'mute'      :   'MUTE',
+'mut'      :   'MUT',
 'pub'       :   'PUB',
 'ref'       :   'REF',
 'return'    :   'RETURN',
@@ -91,7 +91,8 @@ tokens = [
  'AMPERSAND',
  'LEFTSHIFT',
  'RIGHTSHIFT',
- 'NOT'
+ 'NOT',
+ 'TIPO'
 ] + list(reserved.values())
 
 # Regular expression rules for simple tokens
@@ -143,6 +144,8 @@ def t_FLOAT(t):
   r'\d+\.\d+'
   t.value = float(t.value)
   return t
+
+
 
 def t_ID(t):
   r'[a-zA-Z_][a-zA-Z_0-9]*'
