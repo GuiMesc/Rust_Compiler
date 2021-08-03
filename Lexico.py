@@ -85,7 +85,13 @@ tokens = [
  'OR',
  'AND',
  'XOR',
- 'ID'
+ 'ID',
+ 'DOISPONTOS',
+ 'SINGLEOR',
+ 'AMPERSAND',
+ 'LEFTSHIFT',
+ 'RIGHTSHIFT',
+ 'NOT'
 ] + list(reserved.values())
 
 # Regular expression rules for simple tokens
@@ -122,6 +128,11 @@ t_LOWEREQUAL = r'\<\='
 t_OR = r'\|\|'
 t_AND = r'\&\&'
 t_XOR = r'\^'
+t_SINGLEOR = r'\|'
+t_DOISPONTOS = r'\:'
+t_LEFTSHIFT = r'\<\<'
+t_RIGHTSHIFT = r'\>\>'
+t_NOT = r'\!'
 # A regular expression rule with some action code
 def t_INT(t):
   r'\d+' 
