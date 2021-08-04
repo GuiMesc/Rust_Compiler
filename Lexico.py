@@ -22,7 +22,7 @@ reserved = {
 'match'     :   'MATCH',
 'mod'       :   'MOD',
 'move'      :   'MOVE',
-'mut'      :   'MUT',
+'mut'       :   'MUT',
 'pub'       :   'PUB',
 'ref'       :   'REF',
 'return'    :   'RETURN',
@@ -47,7 +47,8 @@ reserved = {
 'typeof'    :   'TYPEOF',
 'unsized'   :   'UNSIZED',
 'virtual'   :   'VIRTUAL',
-'yield'     :   'YIELD'
+'yield'     :   'YIELD',
+'main'      :   'MAIN'
 }
 tokens = [
  'COLON',
@@ -180,5 +181,5 @@ if if if asdasdas
 # Give the lexer some input
 lexer.input(data)
 
-for tok in lexer:
-  print(tok.type, tok.value, tok.lineno, tok.lexpos) 
+#for tok in lexer:
+ # print(tok.type, tok.value, tok.lineno, tok.lexpos) 

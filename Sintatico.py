@@ -59,8 +59,8 @@ def p_expressao_bloco2(p):
 def p_expressao_bloco3(p):
     '''expressao_com_bloco : expressao_de_if'''
 
-def p_expressao_bloc4(p):
-    '''expressao_com_bloco : expressao_de_let_if'''
+#def p_expressao_bloc4(p):
+ #   '''expressao_com_bloco : expressao_de_let_if'''
 
 def p_expressao_de_bloco(p):
     '''expressao_de_bloco : LEFTKEY declaracao RIGHTKEY'''
@@ -69,7 +69,7 @@ def p_declaracao(p):
     '''declaracao : SEMICOLON'''
 
 #def p_declaracao2(p):
-#    '''declaracao : item'''
+ #   '''declaracao : item'''
 
 def p_declaracao3(p):
     '''declaracao : expressao'''
@@ -95,7 +95,7 @@ def p_expressao_de_loop6(p):
 def p_expressao_parada(p):
     '''expressao_parada : BREAK'''
 
-def p_expressao_parada(p):
+def p_expressao_parada1(p):
     '''expressao_continue : CONTINUE'''
 
 def p_expressao_if(p):
@@ -104,17 +104,17 @@ def p_expressao_if(p):
 def p_expressao_if2(p):
     '''expressao_de_if : IF expressao expressao_de_bloco ELSE expressao_de_if'''
 
-def p_expressao_if3(p):
-    '''expressao_de_if : IF expressao expressao_de_bloco ELSE expressao_de_let_if'''
+#def p_expressao_if3(p):
+ #   '''expressao_de_if : IF expressao expressao_de_bloco ELSE expressao_de_let_if'''
 
-def p_expressao_if4(p):
-    '''expressao_de_let_if : IF LET ID ASSIGN expressao expressao_de_bloco ELSE expressao_de_bloco'''
+#def p_expressao_if4(p):
+#    '''expressao_de_let_if : IF LET ID ASSIGN expressao expressao_de_bloco ELSE expressao_de_bloco'''
 
-def p_expressao_if5(p):
-    '''expressao_de_let_if : IF expressao expressao_de_bloco ELSE expressao_de_if'''
+#def p_expressao_if5(p):
+ #   '''expressao_de_let_if : IF expressao expressao_de_bloco ELSE expressao_de_if'''
 
-def p_expressao_if5(p):
-    '''expressao_de_let_if : IF expressao expressao_de_bloco ELSE expressao_de_let_if'''
+#def p_expressao_if5(p):
+ #   '''expressao_de_let_if : IF expressao expressao_de_bloco ELSE expressao_de_let_if'''
 
 def p_declaracao_funcao(p):
     '''declaracao_funcao : FN ID LEFTPAREN parametros_da_funcao RIGHTPAREN tipo_de_retorno LEFTPAREN expressao_de_bloco RIGHTPAREN'''
@@ -127,11 +127,11 @@ def p_tipo_retorno(p):
 
 def p_expressao_sem_bloco1(p):
     '''expressao_sem_bloco : literal_expression'''
-
-def p_expressao_sem_bloco2(p):
-    '''
-    expressao_sem_bloco : exp
-    '''
+    p[0] = p[1]
+#def p_expressao_sem_bloco2(p):
+#    '''
+#    expressao_sem_bloco : exp
+#    '''
 
 def p_expressao_sem_bloco3(p):
     '''
@@ -150,7 +150,7 @@ def p_literal_expression(p):
     '''
     literal_expression : INT
     '''
-
+    #p[0] = p[1]
 def p_literal_expression1(p):
     '''
     literal_expression1 : FLOAT
@@ -166,11 +166,12 @@ def p_exp1(p):
     '''
     exp : exp1 ASSIGN_PLUS exp
     '''
-    #p[0] = p[1] + p[2]
+    #p[0] = p[0] + p[1]
 def p_exp2(p):
     '''
     exp : exp1 ASSIGN_MINUS exp
     '''
+    #p[0] = p[0] - p[1]
 def p_exp3(p):
     '''
     exp : exp1 ASSIGN_TIMES exp
@@ -211,7 +212,7 @@ def p_exp12(p):
     '''
     exp1 : exp1 OR exp2
     '''
-   # p[0] = p[1] | p[2]
+    #p[0] = p[1] | p[2]
 def p_exp13(p):
     '''
     exp1 : exp2
@@ -303,6 +304,7 @@ def p_exp32(p):
     '''
     exp8 : exp8 PLUS exp9
     '''
+    #p[0] = p[1] + p[3]
 def p_exp33(p):
     '''
     exp8 : exp8 MINUS exp9
@@ -336,7 +338,7 @@ def p_exp40(p):
     exp10 : NOT exp10 
     '''
 
-def p_exp40(p):
+def p_exp41(p):
     '''
     exp10 : expressao_sem_bloco
     '''
@@ -360,7 +362,11 @@ def p_index_expression(p):
     index_expression : expressao LEFTBRACKET expressao RIGHTBRACKET
     '''
 
+#def p_error(p):
+ #   print('invalide sintax')
+
 parser = yacc.yacc()
+
 
 while True:
     try:
